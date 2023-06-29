@@ -21,6 +21,11 @@
 
         <div>
 
+            <div class="container-fluid row mb-5">
+                @foreach ($listings as $listing)
+                    <x-listing-card :listing="$listing" />
+                @endforeach
+            </div>
 
             <div class="clearfix">
                 <a href="" class="btn btn-dark me-4 rounded-0 float-end">Post Job</a>

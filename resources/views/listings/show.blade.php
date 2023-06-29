@@ -14,14 +14,7 @@
 
         <p class="text-center link">{{ $listing->company }}</p>
 
-        <span class="d-flex p-0 justify-content-center">
-            <a href=""
-                class="btn tags mx-1 bg-dark text-white btn-sm rounded-pill d-flex justify-content-center align-items-center">php</a>
-            <a href=""
-                class="btn tags mx-1 bg-dark text-white btn-sm rounded-pill d-flex justify-content-center align-items-center">js</a>
-            <a href=""
-                class="btn tags mx-1 bg-dark text-white btn-sm rounded-pill d-flex justify-content-center align-items-center">node</a>
-        </span>
+        <x-listing-tags :tags="$listing->tag" />
 
         <p class="text-center mt-3">{{ $listing->city }}</p>
 

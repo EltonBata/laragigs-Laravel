@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SweepstakeController;
 use App\Http\Controllers\UserController;
+use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('listings.index');
+    
+    return view('listings.index', ['listings' => Listing::all()]);
 })->name('index');
-
