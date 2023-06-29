@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ListingController;
 use App\Http\Controllers\SweepstakeController;
 use App\Http\Controllers\UserController;
 use App\Models\Listing;
@@ -17,7 +18,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    
-    return view('listings.index', ['listings' => Listing::all()]);
-})->name('index');
+Route::get('/', [ListingController::class, 'index'])->name('index');
+Route::get('/{listing}', [ListingController::class, 'show'])->name('listing.show');

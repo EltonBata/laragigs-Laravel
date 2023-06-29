@@ -6,10 +6,12 @@
     
 @endphp
 
-<span class="d-flex p-0 justify-content-evenly">
+<span class="d-flex p-0">
 
     @foreach ($tags as $tag)
-        <a href=""
-            class="btn tags mx-1 bg-dark text-white btn-sm rounded-pill d-flex justify-content-center align-items-center">{{ $tag }}</a>
+        @if ($tag != '')
+            <a href=""
+                class="btn tags mx-1 bg-dark text-white btn-sm rounded-pill d-flex justify-content-center align-items-center">{{ $tag }}</a>
+        @endif
     @endforeach
 </span>
