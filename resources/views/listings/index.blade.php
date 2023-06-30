@@ -13,8 +13,8 @@
         </div>
 
         <div class="my-3">
-            <form class="d-flex" action="">
-                <input class="form-control ms-1 me-2" type="text" placeholder="Search">
+            <form class="d-flex" action="{{ route('index') }}" method="GET">
+                <input class="form-control ms-1 me-2" name="search" type="text" placeholder="Search">
                 <button class="btn btn-sm btn-danger me-1" type="submit">Search</button>
             </form>
         </div>
