@@ -2,7 +2,7 @@
 @section('title', 'Gig')
 @section('content')
 
-    <a href="" class="btn link mt-4">back</a>
+    <a href="{{ route('index') }}" class="btn link mt-4">back</a>
 
     <div class="row">
         <div class="mx-auto col-sm-8 mb-5 border bg-light py-3 rounded-1 mt-2">

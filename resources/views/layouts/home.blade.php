@@ -9,6 +9,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    
 </head>
 
 <body>
@@ -38,6 +39,7 @@
         <p class="text-center text-white ">Copyright 2023, All Rights Reserved</p>
     </div> --}}
 
-</body>
+
+/body>
 
 </html>
