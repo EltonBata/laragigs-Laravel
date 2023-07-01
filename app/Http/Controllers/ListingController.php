@@ -14,11 +14,11 @@ class ListingController extends Controller
      */
     public function index()
     {
-        $listing = Listing::latest()->filter(request(['tag', 'search']))->get();
+        $listing = Listing::latest()->filter(request(['tag', 'search']))->paginate(4);
         return response()->view('listings.index', ['listings' => $listing]);
     }
 
-  
+
     /**
      * Show the form for creating a new resource.
      */
@@ -32,17 +32,26 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
+        
         $data = $request->validate([
             'title' => 'required',
             'company' => ['required', Rule::unique('listings', 'company')],
             'location' => 'required',
-            'websiste' => 'required',
+            'website' => 'required',
             'email' => ['required', 'email', Rule::unique('listings', 'email')],
             'tags' => 'required',
             'description' => 'required'
         ]);
 
-        return response()->redirectToRoute('index');
+        if($request->hasFile('logo')){
+
+            $data['logo'] = $request->file('logo')->store('logos', 'public');
+            
+        }
+
+        Listing::create($data);
+
+        return response()->redirectToRoute('index')->with('success', 'Listing Created');
     }
 
     /**
@@ -56,9 +65,9 @@ class ListingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Listing $listing)
     {
-        //
+        return response()->view('listings.edit', ['listing' => $listing]);
     }
 
     /**

@@ -3,12 +3,14 @@
 @section('content')
 
     <a href="{{ route('index') }}" class="btn link mt-4">back</a>
+    <a href="{{ route('listing.edit', $listing->id) }}" class="btn link mt-4">edit</a>
 
     <div class="row">
         <div class="mx-auto col-sm-8 mb-5 border bg-light py-3 rounded-1 mt-2">
 
             <div class="container mx-auto w-25">
-                <img src="{{ asset('images/ft.png') }}" alt="" class="img-fluid">
+                <img src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('images/ft.png') }}"
+                class="img-fluid list-logo" alt="" class="img-fluid">
             </div>
 
             <h5 class="text-center fw-bold mt-3">{{ $listing->title }}</h5>
@@ -17,7 +19,7 @@
 
             <x-listing-tags :tags="$listing->tag" />
 
-            <p class="text-center mt-3">{{ $listing->city }}</p>
+            <p class="text-center mt-3">{{ $listing->location }}</p>
 
             <hr class="w-75 mx-auto">
 

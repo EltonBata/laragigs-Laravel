@@ -13,10 +13,10 @@
                 @csrf
 
                 @error('email')
-                    <div class="alert alert-danger alert-dismissible mx-auto my-3">
+                    {{-- <div class="alert alert-danger alert-dismissible mx-auto my-3">
                         <button class="btn-close" data-bs-dismiss='alert'></button>
                         {{ $message }}
-                    </div>
+                    </div> --}}
                 @enderror
 
 

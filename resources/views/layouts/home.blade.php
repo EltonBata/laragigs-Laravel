@@ -9,7 +9,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    
+
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         <!-- Links -->
         <ul class="navbar-nav w-100 justify-content-end pe-3">
             <li class="nav-item">
-                <a class="nav-link text-dark me-3" href="{{ route('login',) }}">Login</a>
+                <a class="nav-link text-dark me-3" href="{{ route('login') }}">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark" href="{{ route('register') }}">Register</a>
@@ -32,14 +32,16 @@
     </nav>
 
 
-    @yield('content')
+    <main class="mb-5">
+        @yield('content')
+    </main>
 
 
-    {{-- <div class="bg-danger footer mt-3 w-100">
+    <div class="bg-danger footer w-100">
         <p class="text-center text-white ">Copyright 2023, All Rights Reserved</p>
-    </div> --}}
+    </div>
 
 
-/body>
+</body>
 
 </html>

@@ -9,7 +9,7 @@
             <h3 class="text-center mt-3 fw-bold">LOGIN</h3>
             <p class="text-center small">log in to post gigs</p>
 
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('register') }}">
                 @csrf
 
                 @error('email')
