@@ -7,7 +7,7 @@
         <h3 class="text-center mt-3 fw-bold">EDIT GIG</h3>
         <p class="text-center small">Edit: {{ $listing->title }}</p>
 
-        <form action="{{ route('listing.update') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('listing.update', $listing->id) }}" method="post" enctype="multipart/form-data">
 
             @csrf
             @method('PUT')

@@ -73,16 +73,36 @@ class ListingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Listing $listing)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'company' => ['required'],
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required'
+        ]);
+
+        if ($request->hasFile('logo')) {
+
+            $data['logo'] = $request->file('logo')->store('logos', 'public');
+
+        }
+
+        $listing->update($data);
+
+        return response()->redirectToRoute('listing.show', $listing->id)->with('success', 'Listing Updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Listing $listing)
     {
-        //
+        $listing->delete();
+
+        return response()->redirectToRoute('index')->with('success', 'Listing Deleted');
     }
 }
