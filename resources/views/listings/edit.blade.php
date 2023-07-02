@@ -70,7 +70,7 @@
 
             <div class="
             mt-3" style="max-width: 200px;">
-                <img src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('images/ft.png') }}"
+                <img src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('images/no-image.jpg') }}"
                     class="img-fluid list-logo" style="height: 100%;" alt="">
             </div>
 

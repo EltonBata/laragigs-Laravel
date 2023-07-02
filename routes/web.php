@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ListingController::class, 'index'])->name('index');
 Route::get('/{listing}', [ListingController::class, 'show'])->name('listing.show');
-Route::get('/listings/create', [ListingController::class, 'create'])->name('listing.create');
-Route::post('/listings/store', [ListingController::class, 'store'])->name('listing.store');
-Route::get('listings/{listing}/edit', [ListingController::class, 'edit'])->name('listing.edit');
-Route::put('listings/{listing}', [ListingController::class, 'update'])->name('listing.update');
-Route::delete('listings/{listing}', [ListingController::class, 'destroy'])->name('listing.destroy');
+Route::get('/listings/create', [ListingController::class, 'create'])->name('listing.create')->middleware('auth');
+Route::post('/listings/store', [ListingController::class, 'store'])->name('listing.store')->middleware('auth');
+Route::get('listings/{listing}/edit', [ListingController::class, 'edit'])->name('listing.edit')->middleware('auth');
+Route::put('listings/{listing}', [ListingController::class, 'update'])->name('listing.update')->middleware('auth');
+Route::delete('listings/{listing}', [ListingController::class, 'destroy'])->name('listing.destroy')->middleware('auth');

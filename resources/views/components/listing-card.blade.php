@@ -4,7 +4,7 @@
 
     <div class="border p-2 d-flex h-100 rounded-1 bg-light lists">
         <a href="{{ route('listing.show', $listing->id) }}" style="max-width: 200px;">
-            <img src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('images/ft.png') }}"
+            <img src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('images/no-image.jpg') }}"
                 class="img-fluid list-logo" style="height: 100%;" alt="">
         </a>
 

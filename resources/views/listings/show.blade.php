@@ -3,21 +3,15 @@
 @section('content')
 
     <a href="{{ route('index') }}" class="btn link mt-4">back</a>
-    <a href="{{ route('listing.edit', $listing->id) }}" class="btn link mt-4">edit</a>
 
-    <form action="{{ route('listing.destroy', $listing->id) }}" method="post">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn">delete</button>
-    </form>
 
     <x-alert-success />
 
     <div class="row">
-        <div class="mx-auto col-sm-8 mb-5 border bg-light py-3 rounded-1 mt-2">
+        <div class="mx-auto col-sm-8 mb-2 border bg-light py-3 rounded-1 mt-2">
 
             <div class="container mx-auto w-25">
-                <img src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('images/ft.png') }}"
+                <img src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('images/no-image.jpg') }}"
                     class="img-fluid list-logo" alt="" class="img-fluid">
             </div>
 
@@ -46,6 +40,16 @@
                 <a href="" class="btn btn-dark w-75 rounded-pill">Visit Website</a>
             </div>
 
+        </div>
+
+        <div class="mx-auto col-sm-8 d-flex mb-3 align-items-center border bg-light rounded-1">
+            <a href="{{ route('listing.edit', $listing->id) }}" class="btn link">edit</a>
+
+            <form action="{{ route('listing.destroy', $listing->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn link">delete</button>
+            </form>
         </div>
     </div>
 

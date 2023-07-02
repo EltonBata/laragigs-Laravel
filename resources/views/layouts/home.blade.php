@@ -21,12 +21,30 @@
 
         <!-- Links -->
         <ul class="navbar-nav w-100 justify-content-end pe-3">
-            <li class="nav-item">
-                <a class="nav-link text-dark me-3" href="{{ route('login') }}">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="{{ route('register') }}">Register</a>
-            </li>
+
+            @auth
+                <li class="nav-item me-5 pt-2">
+                    <span class="fw-bold">
+                        WELCOME {{ Str::upper(auth()->user()->username) }}
+                    </span>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark me-3" href="{{ route('login') }}">Manage Listings</a>
+                </li>
+
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-sm btn-danger shadow-sm mt-1">Logout</button>
+                </form>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link text-dark me-3" href="{{ route('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="{{ route('register') }}">Register</a>
+                </li>
+            @endauth
 
         </ul>
     </nav>
