@@ -30,7 +30,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-dark me-3" href="{{ route('login') }}">Manage Listings</a>
+                    <a class="nav-link text-dark me-3" href="{{ route('listing.manage') }}">Manage Listings</a>
                 </li>
 
                 <form action="{{ route('logout') }}" method="post">

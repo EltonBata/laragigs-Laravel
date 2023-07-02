@@ -1,5 +1,5 @@
 @extends('layouts.home')
-@section('title', 'Gig')
+@section('title', 'Edit')
 @section('content')
 
     <div class="mt-5 col-sm-12 border rounded-1 mx-auto p-3 bg-light w-50">

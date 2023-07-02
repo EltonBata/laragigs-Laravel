@@ -9,12 +9,16 @@
         </a>
 
         <div class="ms-3">
-            <a href="{{ route('listing.show', $listing->id) }}" class="text-decoration-none text-dark fw-bold p-0 mt-2">{{ $listing->title }}</a>
+            <a href="{{ route('listing.show', $listing->id) }}"
+                class="text-decoration-none text-dark fw-bold p-0 mt-2">{{ $listing->title }}</a>
             <p class="p-0 ">{{ $listing->company }}</p>
 
             <x-listing-tags :tags="$listing->tags" />
 
             <p class="my-2">{{ $listing->location }}</p>
+
+            <p style="font-size: 12px">User: {{$listing->user->username}}</p>
+
         </div>
     </div>
 

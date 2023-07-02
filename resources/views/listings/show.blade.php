@@ -2,8 +2,7 @@
 @section('title', 'Gig')
 @section('content')
 
-    <a href="{{ route('index') }}" class="btn link mt-4">back</a>
-
+@include('partials._back')
 
     <x-alert-success />
 
@@ -42,15 +41,17 @@
 
         </div>
 
-        <div class="mx-auto col-sm-8 d-flex mb-3 align-items-center border bg-light rounded-1">
-            <a href="{{ route('listing.edit', $listing->id) }}" class="btn link">edit</a>
+        @if ($listing->user_id == auth()->user()->id)
+            <div class="mx-auto col-sm-8 d-flex mb-3 align-items-center border bg-light rounded-1">
+                <a href="{{ route('listing.edit', $listing->id) }}" class="btn link">edit</a>
 
-            <form action="{{ route('listing.destroy', $listing->id) }}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn link">delete</button>
-            </form>
-        </div>
+                <form action="{{ route('listing.destroy', $listing->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn link">delete</button>
+                </form>
+            </div>
+        @endif
     </div>
 
 @endsection

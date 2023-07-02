@@ -1,0 +1,1 @@
+<a href="{{ route('index') }}" class="btn link mt-4">back</a>

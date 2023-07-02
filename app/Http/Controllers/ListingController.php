@@ -32,7 +32,7 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $data = $request->validate([
             'title' => 'required',
             'company' => ['required', Rule::unique('listings', 'company')],
@@ -43,11 +43,13 @@ class ListingController extends Controller
             'description' => 'required'
         ]);
 
-        if($request->hasFile('logo')){
+        if ($request->hasFile('logo')) {
 
             $data['logo'] = $request->file('logo')->store('logos', 'public');
-            
+
         }
+
+        $data['user_id'] = auth()->user()->id;
 
         Listing::create($data);
 
@@ -104,5 +106,13 @@ class ListingController extends Controller
         $listing->delete();
 
         return response()->redirectToRoute('index')->with('success', 'Listing Deleted');
+    }
+
+    public function manage()
+    {
+
+        $listings = auth()->user()->listings()->get();
+
+        return response()->view('listings.manage', ['listings' => $listings]);
     }
 }
